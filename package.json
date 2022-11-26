@@ -1,22 +1,33 @@
 {
-  "name": "food_ordering",
+  "name": "next_doc_example",
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "next",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "analyze": "cross-env ANALYZE=true npm run build",
+    "serve": "serve .next/analyze"
   },
   "dependencies": {
+    "@faker-js/faker": "^7.6.0",
+    "@next/bundle-analyzer": "^12.1.6",
     "@types/node": "18.11.9",
     "@types/react": "18.0.25",
     "@types/react-dom": "18.0.9",
+    "cross-env": "^7.0.3",
     "eslint": "8.28.0",
     "eslint-config-next": "13.0.4",
     "next": "13.0.4",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "typescript": "4.9.3"
+  },
+  "devDependencies": {
+    "@types/node": "^18.0.0",
+    "@types/react": "^18.0.14",
+    "@types/react-dom": "^18.0.5",
+    "serve": "^13.0.2",
+    "typescript": "^4.7.4"
   }
 }
