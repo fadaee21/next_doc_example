@@ -1,30 +1,25 @@
-import { NextPage, GetStaticProps } from 'next'
+import type { User } from '../interfaces'
+import useSwr from 'swr'
 import Link from 'next/link'
-import { faker } from '@faker-js/faker'
 
-type IndexProps = {
-  name: string
-}
+const fetcher = (url: string) => fetch(url).then((res) => res.json())
 
-const Index: NextPage<IndexProps> = ({ name }) => {
+export default function Index() {
+  const { data, error } = useSwr<User[]>('/api/users', fetcher)
+
+  if (error) return <div>Failed to load users</div>
+  if (!data) return <div>Loading...</div>
+
   return (
-    <div>
-      <h1>Home Page</h1>
-      <p>Welcome, {name}</p>
-      <div>
-        <Link href="/about">About Page</Link>
-      </div>
-    </div>
+    <ul>
+      THIS IS THE INDEX PAGE
+      {data.map((user) => (
+        <li key={user.id}>
+          <Link href="/user/[id]" as={`/user/${user.id}`} legacyBehavior>
+            {`User ${user.name}`}
+          </Link>
+        </li>
+      ))}
+    </ul>
   )
-}
-
-export default Index
-
-export const getStaticProps: GetStaticProps = async () => {
-  // The name will be generated at build time only
-  const name = faker.name.fullName()
-
-  return {
-    props: { name },
-  }
 }
