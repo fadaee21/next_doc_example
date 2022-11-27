@@ -3,22 +3,22 @@ import type { InferGetStaticPropsType } from 'next'
 import type { Repository } from '../types/github'
 
 export async function getStaticProps() {
-  const res = await fetch('https://api.github.com/repos/vercel/next.js')
-  const data: Repository = await res.json()
+  const res = await fetch('https://api.github.com/repos/preactjs/preact')
+  const json: Repository = await res.json()
   return {
     props: {
-      stars: data.stargazers_count,
+      stars: json.stargazers_count,
     },
   }
 }
 
-export default function IndexPage({
+export default function PreactStarsPage({
   stars,
 }: InferGetStaticPropsType<typeof getStaticProps>) {
   return (
     <>
-      <p>Next.js has {stars} ⭐️</p>
-      <Link href="/preact-stars">How about preact?</Link>
+      <p>Preact has {stars} ⭐</p>
+      <Link href="/">I bet Next.js has more stars (?)</Link>
     </>
   )
 }
