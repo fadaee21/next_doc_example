@@ -1,36 +1,29 @@
-# Catch All Routes Example
+# Shallow Routing Example
 
-This example shows how to use [Catch all routes](https://nextjs.org/docs/routing/dynamic-routes#catch-all-routes) in Next.js, which allows a dynamic route to catch all paths.
+With [Shallow Routing](https://nextjs.org/docs/routing/shallow-routing), we can change the URL without running data fetching methods (like `getStaticProps` and `getServerSideProps`) again.
 
-The catch all page is in `pages/post/[...slug]`, it matches any path after `/post`, like the following:
-
-- `/post/first-post`,
-- `/post/2020/first-post`
-- `/post/2020/first-post/with/catch/all/routes`
-- Anything that matches the glob `/post/**`
-
-You can use `next/link` as displayed in this example to route to these pages client side.
+We do this by passing the `shallow: true` option to `Router.push` or `Router.replace`.
 
 ## Deploy your own
 
-Deploy the example using [Vercel](https://vercel.com?utm_source=github&utm_medium=readme&utm_campaign=next-example) or preview live with [StackBlitz](https://stackblitz.com/github/vercel/next.js/tree/canary/examples/catch-all-routes)
+Deploy the example using [Vercel](https://vercel.com?utm_source=github&utm_medium=readme&utm_campaign=next-example) or preview live with [StackBlitz](https://stackblitz.com/github/vercel/next.js/tree/canary/examples/with-shallow-routing)
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/git/external?repository-url=https://github.com/vercel/next.js/tree/canary/examples/catch-all-routes&project-name=catch-all-routes&repository-name=catch-all-routes)
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/git/external?repository-url=https://github.com/vercel/next.js/tree/canary/examples/with-shallow-routing&project-name=with-shallow-routing&repository-name=with-shallow-routing)
 
 ## How to use
 
 Execute [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) with [npm](https://docs.npmjs.com/cli/init), [Yarn](https://yarnpkg.com/lang/en/docs/cli/create/), or [pnpm](https://pnpm.io) to bootstrap the example:
 
 ```bash
-npx create-next-app --example catch-all-routes catch-all-routes-app
+npx create-next-app --example with-shallow-routing with-shallow-routing-app
 ```
 
 ```bash
-yarn create next-app --example catch-all-routes catch-all-routes-app
+yarn create next-app --example with-shallow-routing with-shallow-routing-app
 ```
 
 ```bash
-pnpm create next-app --example catch-all-routes catch-all-routes-app
+pnpm create next-app --example with-shallow-routing with-shallow-routing-app
 ```
 
 Deploy it to the cloud with [Vercel](https://vercel.com/new?utm_source=github&utm_medium=readme&utm_campaign=next-example) ([Documentation](https://nextjs.org/docs/deployment)).
